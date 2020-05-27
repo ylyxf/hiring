@@ -2,5 +2,7 @@
 
 2020-05-18~2020-05-25 纠结中
 
-2020-05-26 fork了 xmindltd/hiring,整理了一下思路
+2020-05-26 fork了 xmindltd/hiring,整理了一下思路,基于vue构建应用。
+
+2020-05-27 element-ui分页和表格组件各是一个组件，还是从EasyUI开箱即用，先使用EasyUI来实现。
 
