@@ -3,9 +3,7 @@
     <FileButton iconCls="icon-save" @select="importCategory">导入分类</FileButton>
     <DataGrid idField="id" :data="categoryList" style="height:250px">
       <GridColumn field="name" title="Name"></GridColumn>
-      <GridColumn field="type" title="Type">
-        <template slot="body" slot-scope="scope">{{scope.row.type==0?"支出":"收入"}}</template>
-      </GridColumn>
+      <GridColumn field="typeName" title="Type"></GridColumn>
     </DataGrid>
   </div>
 </template>
@@ -16,12 +14,20 @@ import Papa from "papaparse";
 export default {
   data() {
     return {
-      categoryList: []
+      categories: []
     };
+  },
+  computed: {
+    categoryList() {
+      //referebced in your template just as booksList
+      return this.categories.map(category => {
+        category.typeName = category.type == 0 ? "支出" : "收入";
+        return category;
+      });
+    }
   },
   methods: {
     importCategory: function(files) {
-      console.log("in method:", this.categoryList);
       // this can't be used in callback functions,defind _data to hold this
       let _data = this;
       //Parse files[0] to json
@@ -30,7 +36,7 @@ export default {
         complete: function(results) {
           console.log(results.data);
           //set json data to categoryList
-          _data.categoryList = results.data;
+          _data.categories = results.data;
         }
       });
     }
