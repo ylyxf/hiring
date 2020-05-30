@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "element-ui": "^2.13.2",
+    "papaparse": "^5.2.0",
     "vue": "^2.6.11",
     "vx-easyui": "^1.2.8"
   },

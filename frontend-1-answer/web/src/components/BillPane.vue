@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div style="text-align: left;">
+      <LinkButton iconCls="icon-save">导入</LinkButton>
+      <LinkButton iconCls="icon-add">新增</LinkButton>
+    </div>
     <DataGrid :data="data" style="height:250px">
       <GridColumn field="itemid" title="Item ID"></GridColumn>
       <GridColumn field="name" title="Name"></GridColumn>
